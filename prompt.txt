@@ -1,0 +1,208 @@
+Build a simple, visually attractive React application called **Decision Parking Lot**.
+
+## 1. Project idea
+
+Decision Parking Lot helps people stop overthinking the same decisions repeatedly.
+
+Users can save a decision they aren't ready to make, list their possible options, write down questions they need answered, and set a date to review it later. Once they decide, they can mark it as completed.
+
+The goal is to create a **simple, working prototype for a college assignment**, not a complex production application.
+
+## 2. Technology
+
+Use:
+- React with Vite
+- JavaScript and JSX
+- React functional components
+- `useState` and `useEffect`
+- CSS for styling
+- `localStorage` to save decisions between refreshes
+
+Do not use a backend, authentication, APIs, databases, or complicated libraries. Keep the code beginner-friendly and easy to explain.
+
+## 3. Design and appearance
+
+**Visual quality is the highest priority.** Make the application look polished, modern, and professional, even though its functionality is simple.
+
+Design direction:
+- Minimal, modern productivity-app aesthetic
+- Warm off-white or very light grey background
+- Dark charcoal text
+- One elegant accent colour, such as muted purple or indigo
+- Generous whitespace and clean typography
+- Rounded cards, subtle borders, and soft shadows
+- Attractive buttons, input fields, badges, and progress bars
+- Consistent spacing and alignment
+- Subtle hover effects and smooth transitions
+- Responsive layout for desktop and mobile
+
+Use a clean font such as Inter if available, with sensible fallbacks.
+
+Avoid excessive gradients, too many colours, unnecessary animations, excessive cards, and generic admin-dashboard styling.
+
+Make the parking-lot concept visible through small details such as parking-slot numbers (P1, P2, P3) and understated visual indicators. Keep it sophisticated rather than cartoonish.
+
+The final interface should look like a thoughtfully designed small SaaS product.
+
+## 4. Main screen: Dashboard
+
+Create a single-page dashboard with:
+
+**Header**
+- App name: Decision Parking Lot
+- Navigation: Dashboard, History
+- A prominent "+ Park a Decision" button
+
+**Welcome section**
+
+Heading: "Clear your mind. Park the decision."
+
+Subtitle: "You don't have to figure everything out right now."
+
+**Summary section**
+
+Show three compact statistics:
+- Active Decisions
+- Due for Review
+- Decisions Made
+
+**Needs Your Attention**
+
+Display decisions whose review date is today or overdue.
+
+**Your Parking Lot**
+
+Show the user's active decisions as attractive cards.
+
+Each card should display:
+- Decision title
+- Category
+- Review date or days remaining
+- Number of questions answered
+- A small progress bar
+- A "View Decision" action
+
+Use a responsive two-column grid on desktop and a single-column layout on mobile.
+
+If there are no decisions, show a pleasant empty state with a short message and a button to park the first decision.
+
+## 5. Add a decision
+
+When the user clicks "+ Park a Decision", open a clean form, either in a modal or on a separate page.
+
+Include these fields:
+
+1. **What are you deciding?** — text input
+2. **Category** — dropdown with Career, Education, Finance, Personal, Technology, Travel, and Other
+3. **Why does this decision matter?** — textarea
+4. **Possible options** — allow the user to add and remove options
+5. **Questions I need answered** — allow the user to add and remove questions
+6. **When should I revisit this?** — date input
+7. **Current thinking** — optional textarea
+
+Provide clear buttons for "Cancel" and "Park Decision".
+
+Validate the decision title and required fields. On submission, save the decision and show it on the dashboard immediately.
+
+## 6. Decision details
+
+Clicking a decision card should open a detail view or modal containing:
+
+- Decision title and category
+- Reason for the decision
+- Possible options
+- Questions with interactive checkboxes
+- Current thinking
+- Review date
+- Decision progress
+
+When a question is checked or unchecked, update the progress bar and answered-question count immediately.
+
+Include two actions:
+
+- **Keep Parked** — return to the dashboard without changing the decision.
+- **Mark as Decided** — open a small form asking which option was chosen and why.
+
+Once saved, move the decision to the history section.
+
+## 7. Decision history
+
+Create a simple History view accessible from the navigation.
+
+Show completed decisions with:
+- Decision title
+- Category
+- Selected option
+- Reason for the final decision
+- Date decided
+
+Include a simple empty state if there are no completed decisions.
+
+## 8. Sample data
+
+Include three realistic example decisions when the app is opened for the first time:
+
+- Should I buy a new laptop?
+- Should I accept this internship?
+- Should I travel this weekend?
+
+Give each example a few options, questions, and a review date.
+
+Save the data in `localStorage` so it persists after refreshing the page. Include a way to delete a decision with a confirmation prompt.
+
+## 9. React structure
+
+Keep the file structure simple and understandable. For example:
+
+```text
+src/
+  components/
+    Navbar.jsx
+    DecisionCard.jsx
+    DecisionForm.jsx
+    DecisionDetails.jsx
+    ProgressBar.jsx
+  App.jsx
+  main.jsx
+  index.css
+```
+
+Use reusable components, props, event handlers, `.map()`, `.filter()`, `useState`, and `useEffect` naturally.
+
+Avoid unnecessary abstractions, custom hooks unless genuinely useful, complex state management, and excessive files.
+
+## 10. Functional requirements
+
+The following must work:
+
+- Add a decision
+- View decision details
+- Add and remove options and questions while creating a decision
+- Check and uncheck questions
+- Update progress automatically
+- Edit an existing decision if practical
+- Mark a decision as completed
+- View decision history
+- Delete a decision with confirmation
+- Save data using `localStorage`
+- Retain data after refresh
+- Navigate between views
+- Display appropriate empty states
+
+Calculate review status from the actual current date. Do not hardcode statuses.
+
+## 11. Final instructions
+
+Build the actual application, not just a mockup or design preview.
+
+Keep the implementation small enough that a beginner can understand and explain the code during a practical examination.
+
+Do not add features beyond the scope described above. Do not spend time on backend integration, authentication, elaborate charts, AI features, or complex animations.
+
+Prioritize these three things, in order:
+
+1. **A beautiful, polished, consistent interface**
+2. **Core features that work correctly**
+3. **Simple React code that demonstrates fundamental concepts**
+
+Run the application, test the main user flow, fix any errors, and ensure it works properly before finishing. If the project already exists, inspect it first and modify it rather than unnecessarily recreating it from scratch.
